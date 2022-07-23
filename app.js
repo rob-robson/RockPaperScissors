@@ -32,18 +32,19 @@ function playRound() {
     if (computerSelection === "rock" && playerSelection === "scissors" ||
     computerSelection === "paper" && playerSelection === "rock" ||
     computerSelection === "scissors" && playerSelection === "paper") {
-        console.log(`computer: ${computerSelection} player: ${playerSelection}`);
+        console.log(`computer: ${computerSelection}, player: ${playerSelection}`);
         computerScore++;
         console.log(`Computer wins! ${computerSelection} beats ${playerSelection}`);
 
     } else if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock" ||
     playerSelection === "scissors" && computerSelection === "paper") {
-        console.log(`computer: ${computerSelection} player: ${playerSelection}`);
+        console.log(`computer: ${computerSelection}, player: ${playerSelection}`);
         playerScore++;
         console.log(`You Win, ${playerSelection} beats ${computerSelection}`);
 
     } else {
+        console.log(`computer: ${computerSelection}, player: ${playerSelection}`);
         console.log(`It's a draw, you both chose ${playerSelection}`);
     }
 }
