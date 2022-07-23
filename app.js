@@ -8,7 +8,7 @@
 
 const choices = ["rock", "paper", "scissors"];
 let computerSelection;
-let playerSelection;
+let playerSelection = null;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -19,7 +19,7 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     for (; choices.includes(playerSelection) != true ;) {
-        player = prompt("Choose Rock, Paper or Scissors:");
+        player = prompt("Choose Rock, Paper or Scissors:", "rock" );
         playerSelection = player.toLowerCase();
     }
     return playerSelection;
@@ -35,6 +35,8 @@ function playRound() {
         console.log(`computer: ${computerSelection}, player: ${playerSelection}`);
         computerScore++;
         console.log(`Computer wins! ${computerSelection} beats ${playerSelection}`);
+        computerSelection = null;
+        playerSelection = null;
 
     } else if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock" ||
@@ -42,14 +44,34 @@ function playRound() {
         console.log(`computer: ${computerSelection}, player: ${playerSelection}`);
         playerScore++;
         console.log(`You Win, ${playerSelection} beats ${computerSelection}`);
+        computerSelection = null;
+        playerSelection = null;
 
     } else {
         console.log(`computer: ${computerSelection}, player: ${playerSelection}`);
         console.log(`It's a draw, you both chose ${playerSelection}`);
+        computerSelection = null;
+        playerSelection = null;
     }
 }
 
-playRound();
+function game() {
+    playerScore = 0;
+    computerScore = 0;
+    for (rounds = 0; rounds <= 4; rounds++) {
+        playRound()
+        console.log(`Round: ${rounds + 1} of 5`)
+    }
+    if (playerScore < computerScore) {
+        console.log(`You win!!\n${playerScore} : ${computerScore}`);
+    } else if (playerScore > computerScore) {
+        console.log(`You lose!!\n${computerScore} : ${playerScore}`);
+    } else {
+        console.log(`It's a draw!!\n${computerScore} : ${playerScore}`);
+    }
+}
+
+game();
 
 // console.log("computer: " + getComputerChoice() + "\n player: " + getPlayerChoice());
 // console.log("you: " + playerScore + " computer: " + computerScore);
