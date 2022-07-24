@@ -62,12 +62,12 @@ function game() {
         playRound()
         console.log(`Round: ${rounds + 1} of 5`)
     }
-    if (playerScore < computerScore) {
-        console.log(`You win!!\n${playerScore} : ${computerScore}`);
-    } else if (playerScore > computerScore) {
-        console.log(`You lose!!\n${computerScore} : ${playerScore}`);
+    if (playerScore > computerScore) {
+        console.log(`You win!!\nYou: ${playerScore} - Compuer: ${computerScore}`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lose!!\nComputer: ${computerScore} - You: ${playerScore}`);
     } else {
-        console.log(`It's a draw!!\n${computerScore} : ${playerScore}`);
+        console.log(`It's a draw!!\nComputer: ${computerScore} - You: ${playerScore}`);
     }
 }
 
